@@ -229,3 +229,48 @@ const products = [
         brand: "Keurig",
         image: "path/to/coffee_maker.jpg"
     },
+    {
+        name: "Air Fryer",
+        price: 89.99,
+        category: "Kitchen Appliances",
+        brand: "Ninja",
+        image: "path/to/air_fryer.jpg"
+    },
+    {
+        name: "Stand Mixer",
+        price: 199.99,
+        category: "Kitchen Appliances",
+        brand: "KitchenAid",
+        image: "path/to/stand_mixer.jpg"
+    },
+    {
+        name: "Refrigerator",
+        price: 799.99,
+        category: "Kitchen Appliances",
+        brand: "Whirlpool",
+        image: "path/to/refrigerator.jpg"
+    },
+    {
+        name: "Dishwasher",
+        price: 399.99,
+        category: "Kitchen Appliances",
+        brand: "Bosch",
+        image: "path/to/dishwasher.jpg"
+    }
+];
+
+const div = document.querySelector('.container');
+
+const filterItems = (btn)=>{
+    div.innerHTML = " "
+    console.log(btn.innerHTML)
+    const filtered = products.filter (item=> item.category === btn.innerHTML).map(item=>{
+        div.innerHTML += `<div class="card mt-2 p-3" style="width: 16rem; color : white; background-color : black;>
+        <div class="card-body">
+            <h5 class="card-title">Product Name: ${item.name}</h5>
+            <hr/>
+            <p class="card-text">Price: $${item.price}<br>Category: ${item.category}<br>Brand: ${item.brand}</p>
+        </div>
+    </div>`;
+    })
+}
